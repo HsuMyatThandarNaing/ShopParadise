@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <form name="signupForm">
+        <h1>Sign Up</h1>
+
+        <p>
+            <label for="username">Username</label><br>
+            <input type="text" name="username" id="username" required><br><br>
+
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="email" required><br><br>
+
+            <label for="password">Password</label><br>
+            <input type="password" name="password" id="password" required><br><br>
+
+            <label for="confirmPassword">Confirm Password</label><br>
+            <input type="password" name="confirmPassword" id="confirmPassword" required><br><br>
+        </p>
+
+        <input type="button" name="submit" id="signupBtn" value="Sign Up"><br>
+
+        <div class="login">
+            <p>Already have an account?</p>
+            <a href="login.html">Login</a>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("signupBtn").addEventListener("click", function () {
+
+            var username = document.getElementById("username").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (username === "" || email === "" || password === "" || confirmPassword === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            if (!/^[a-zA-Z0-9]+$/.test(username)) {
+                alert("Username can only contain letters and numbers.");
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return;
+            }
+
+            if (!/\d/.test(password)) {
+                alert("Password must contain at least one number.");
+                return;
+            }
+
+            alert("Sign Up successful!");
+            window.location.href = "login.html";
+        });
+    </script>
+
+</body>
+</html>

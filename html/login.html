@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <form name="form1">
+        <h1>LOG IN</h1>
+
+        <p>
+            <label for="txt">Username</label><br>
+            <input type="text" name="name" id="txt" required><br><br>
+
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="email" required><br><br>
+
+            <label for="pwd">Password</label><br>
+            <input type="password" name="password" id="pwd" required><br><br>
+        </p>
+
+        <input type="button" name="submit" id="loginBtn" value="Login"><br>
+
+        <div class="register">
+            <p>Don't have an account?</p>
+            <a href="signup.html">Register</a>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("loginBtn").addEventListener("click", function () {
+
+            var username = document.getElementById("txt").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("pwd").value;
+
+            if (username === "" || email === "" || password === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (!/^[a-zA-Z0-9]+$/.test(username)) {
+                alert("Username can only contain letters and numbers.");
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return;
+            }
+
+            if (!/\d/.test(password)) {
+                alert("Password must contain at least one number.");
+                return;
+            }
+
+            alert("Login successful!");
+
+            window.location.replace("payment.html");
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(#7F67F9, #B48EFD, #FFBBD9, #FF99CA, #F26CAA, #FA9778);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .order-total {
+            background-color: #f5efff;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #7F67F9;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #7F67F9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Payment Form</h2>
+
+        <div class="order-total">
+            Total Amount: <span id="totalAmount">0 Kyats</span>
+        </div>
+
+        <form id="paymentForm">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="card_number">Card Number:</label>
+            <input
+                type="text"
+                id="card_number"
+                name="card_number"
+                placeholder="Enter card number"
+                pattern="[0-9 ]{13,19}"
+                title="Enter a valid card number"
+                required
+            >
+
+            <label for="expiry_date">Expiry Date:</label>
+            <input
+                type="text"
+                id="expiry_date"
+                name="expiry_date"
+                placeholder="MM/YYYY"
+                pattern="(0[1-9]|1[0-2])/[0-9]{4}"
+                title="Enter expiry date in MM/YYYY format"
+                required
+            >
+
+            <label for="cvv">CVV:</label>
+            <input
+                type="text"
+                id="cvv"
+                name="cvv"
+                placeholder="Enter CVV"
+                pattern="[0-9]{3,4}"
+                title="CVV must contain 3 or 4 digits"
+                required
+            >
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+        <a href="cart.html" class="back-link">Back to Shopping Cart</a>
+
+    </div>
+
+    <script>
+        // Load shared cart
+        let cart = JSON.parse(localStorage.getItem("shopParadiseCart")) || [];
+
+        // Calculate total amount
+        function calculateTotal() {
+            return cart.reduce(function(total, item) {
+                return total + (Number(item.price) * Number(item.quantity));
+            }, 0);
+        }
+
+        let totalAmount = calculateTotal();
+
+        // Display total
+        document.getElementById("totalAmount").textContent =
+            totalAmount.toLocaleString() + " Kyats";
+
+        // Check if cart is empty
+        if (cart.length === 0 || totalAmount <= 0) {
+            alert("Your shopping cart is empty. Please add products first.");
+            window.location.href = "cart.html";
+        }
+
+        // Handle form submission
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            if (calculateTotal() <= 0) {
+                alert("Your shopping cart is empty.");
+                window.location.href = "cart.html";
+                return;
+            }
+
+            alert(
+                "You have ordered successfully!\n" +
+                "Total Amount: " + calculateTotal().toLocaleString() + " Kyats"
+            );
+
+            // Clear shared cart
+            localStorage.removeItem("shopParadiseCart");
+
+            // Return to homepage
+            window.location.href = "HomePage.html";
+        });
+    </script>
+
+</body>
+</html>

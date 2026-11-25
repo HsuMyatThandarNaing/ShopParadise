@@ -1,0 +1,140 @@
+/* Header */
+.header {
+    width: 70%;
+    min-height: 80px;
+    background-color: gold;
+    border-radius: 10px;
+    margin: 30px auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Shopping Cart Icon */
+.fa-solid {
+    color: #d4a900;
+}
+
+/* Cart Item Count */
+.cart p {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #d4a900;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    width: 70%;
+    margin: 20px auto 30px;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+/* Product Section */
+#root {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Shopping Cart Sidebar */
+.sidebar {
+    width: 40%;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #7F67F9,
+        #B48EFD,
+        #FFBBD9,
+        #FF99CA,
+        #F26CAA,
+        #FA9778
+    );
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Sidebar Heading */
+.head {
+    background-color: gold;
+    border-radius: 8px;
+    min-height: 45px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+/* Cart Footer */
+.foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 0;
+    padding: 15px 5px 5px;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .header,
+    .container {
+        width: 90%;
+    }
+
+    #root {
+        width: 60%;
+    }
+
+    .sidebar {
+        width: 40%;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        width: 95%;
+        padding: 12px 15px;
+    }
+
+    .container {
+        width: 95%;
+        flex-direction: column;
+    }
+
+    #root {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-left: 0;
+        box-sizing: border-box;
+    }
+
+    .head {
+        font-size: 22px;
+    }
+}

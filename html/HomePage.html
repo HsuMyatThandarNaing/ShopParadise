@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Paradise - Home</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/stylehome.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <a href="#" class="logo">Shop Paradise</a>
+
+        <ul>
+            <!-- Original Navigation Links -->
+            <li><a href="producthome.html">Popular Items</a></li>
+            <li><a href="reviewpage.html">Review</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="Skincare.html">Beauty</a></li>
+            <li><a href="readymade-products.html">Food & Snacks</a></li>
+            <li><a href="shoesandsneakers.html">Fashion</a></li>
+            <li><a href="vegetable.html">Fruits & Veg</a></li>
+            <li><a href="book.html">Stationery</a></li>
+        </ul>
+
+        <div class="header-icon">
+            <a href="cart.html">
+                <i class='bx bx-cart-alt'></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Section 1: Cosmetics -->
+    <section class="parallax" id="cosmetics">
+        <img src="../images/shop1.png" id="shop1" alt="Shop background">
+        <img src="../images/cosmeticbucket-removebg-preview.png" id="cosb" alt="Cosmetic products">
+
+        <div class="scroll-reminder">
+            Scroll Down to Explore More ↓
+        </div>
+
+        <a href="producthome.html" class="shopnow">Shop Now</a>
+    </section>
+
+    <script>
+        let shop1 = document.getElementById('shop1');
+        let cosb = document.getElementById('cosb');
+
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            shop1.style.top = value * -1.5 + 'px';
+            cosb.style.right = value * 1.5 + 'px';
+        });
+    </script>
+
+    <!-- Section 2: Beauty Products -->
+    <section class="section2" id="beauty">
+        <img src="../images/cosme-removebg-preview.png" id="cosA" alt="Beauty products">
+        <img src="../images/cosbuy-removebg-preview.png" id="cosbuy" alt="Cosmetic collection">
+
+        <a href="product.html" class="shopnow1">Shop Now</a>
+    </section>
+
+    <script>
+        let cosA = document.getElementById('cosA');
+        let cosbuy = document.getElementById('cosbuy');
+
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            cosA.style.marginRight = value * 0.9 + 'px';
+            cosbuy.style.left = value * 0.9 + 'px';
+        });
+    </script>
+
+    <!-- Section 3: Food and Snacks -->
+    <section class="section3" id="food">
+        <img src="../images/set-tin-food_1308-26262-removebg-preview.png" id="tin" alt="Canned food">
+        <img src="../images/different-snack-collection_23-2147919468-removebg-preview.png" id="snack" alt="Snacks collection">
+        <img src="../images/realistic-beer_98292-7275-removebg-preview.png" id="beer" alt="Beverage">
+
+        <a href="readymade-products.html" class="shopnow2">Shop Now</a>
+    </section>
+
+    <script>
+        let tin = document.getElementById('tin');
+        let snack = document.getElementById('snack');
+        let beer = document.getElementById('beer');
+
+        window.addEventListener('scroll', function() {
+            let value1 = window.scrollY;
+
+            tin.style.right = -value1 * -0.65 + 'px';
+            beer.style.left = -value1 * -0.6 + 'px';
+        });
+    </script>
+
+    <!-- Section 4: Fashion -->
+    <section class="section4" id="fashion">
+        <img src="../images/Brown_sweatpants_for_sports_-4-removebg-preview.png"
+             id="pants" height="400" alt="Brown sweatpants">
+
+        <img src="../images/front-hoodie-sweater-with-dog--removebg-preview-removebg-preview.png"
+             id="hoodie" width="300" height="300" alt="Hoodie">
+
+        <a href="shoesandsneakers.html" class="shopnow3">Shop Now</a>
+    </section>
+
+    <script>
+        let hoodie = document.getElementById('hoodie');
+        let pants = document.getElementById('pants');
+
+        window.addEventListener('scroll', function() {
+            let value2 = window.scrollY;
+            hoodie.style.right = -value2 * -0.28 + 'px';
+            pants.style.left = value2 * 0.1 + 'px';
+        });
+    </script>
+
+    <!-- Section 5: Fruits and Vegetables -->
+    <section class="section5" id="vegetables">
+        <img src="../images/or1-removebg-preview.png" id="or1" alt="Orange">
+        <img src="../images/vege.png" id="vege" width="300" height="300" alt="Vegetables">
+        <img src="../images/or2-removebg-preview.png" id="or2" alt="Fresh orange">
+
+        <a href="dairy%20product.html" class="shopnow4">Shop Now</a>
+    </section>
+
+    <script>
+        let or1 = document.getElementById('or1');
+        let or2 = document.getElementById('or2');
+        let vege = document.getElementById('vege');
+
+        window.addEventListener('scroll', function() {
+            let value3 = window.scrollY;
+
+            or2.style.right = value3 * 0.23 + 'px';
+            or1.style.left = value3 * 0.25 + 'px';
+            vege.style.width = value3 * 0.1 + 'px';
+            vege.style.height = value3 * 0.1 + 'px';
+        });
+    </script>
+
+    <!-- Section 6: Books -->
+    <section class="section6" id="books">
+        <img src="../images/book.png" id="book"
+             height="450" width="630" alt="Books">
+
+        <a href="book.html" class="shopnow5">Shop Now</a>
+    </section>
+
+    <script>
+        let book = document.getElementById('book');
+
+        window.addEventListener('scroll', function() {
+            let value4 = window.scrollY;
+            book.style.left = value4 * 0.13 + 'px';
+        });
+    </script>
+
+    <!-- Final Section -->
+    <section class="section7">
+    <h1>Thank You! ♡</h1>
+    <p>We're happy you visited Shop Paradise!</p>
+    <a href="#cosmetics">Continue Shopping</a>
+</section>
+
+</body>
+</html>

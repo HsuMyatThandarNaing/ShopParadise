@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Shopping Cart - Shop Paradise</title>
+
+    <link rel="stylesheet" href="../css/productstyle.css">
+    <link rel="stylesheet" href="../css/addtocart.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#7F67F9, #B48EFD, #FFBBD9, #FF99CA, #F26CAA);
+            min-height: 100vh;
+            margin: 0;
+            padding: 30px 15px;
+            box-sizing: border-box;
+        }
+
+        .cart-container {
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #7F67F9;
+        }
+
+        #cartItem {
+            margin: 20px 0;
+        }
+
+        .cart-product {
+            padding: 12px 0;
+        }
+
+        .cart-product button {
+            padding: 6px 12px;
+            margin: 4px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: #7F67F9;
+            color: white;
+        }
+
+        .cart-product button:hover {
+            background: #684edb;
+        }
+
+        .total-section {
+            border-top: 2px solid #ddd;
+            padding-top: 15px;
+            text-align: right;
+        }
+
+        .total-section h2 {
+            color: #7F67F9;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .actions a,
+        .actions button {
+            display: inline-block;
+            padding: 12px 18px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            background: #7F67F9;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .actions a:hover,
+        .actions button:hover {
+            background: #684edb;
+        }
+
+        @media (max-width: 500px) {
+            .actions {
+                flex-direction: column;
+            }
+
+            .actions a,
+            .actions button {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cart-container">
+
+        <h1>My Shopping Cart</h1>
+
+        <div id="cartItem">Your cart is empty</div>
+
+        <div class="total-section">
+            <h3>Total Amount</h3>
+            <h2 id="total">0 Kyats</h2>
+        </div>
+
+        <div class="actions">
+            <a href="HomePage.html">Continue Shopping</a>
+
+            <button onclick="clearCart()">Clear Cart</button>
+
+            <button onclick="checkout()">Proceed to Checkout</button>
+        </div>
+
+    </div>
+
+    <script src="../js/cart.js"></script>
+
+    <script>
+        function clearCart() {
+            if (confirm("Are you sure you want to clear your cart?")) {
+                localStorage.removeItem("shopParadiseCart");
+                updateCartDisplay();
+            }
+        }
+
+        function checkout() {
+            let cart = getCart();
+
+            if (cart.length === 0 || getCartTotal() <= 0) {
+                alert("Your shopping cart is empty!");
+                return;
+            }
+
+            // Go to Login page before Payment
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+</html>
